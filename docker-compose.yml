@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  nginx1:
+    image: nginx:stable
+    container_name: nginx1
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    ports:
+      - "8081:80"
+
+  nginx2:
+    image: nginx:stable
+    container_name: nginx2
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    ports:
+      - "8082:80"
+
+  apache:
+    image: httpd:2.4
+    container_name: apache
+    volumes:
+      - ./index.html:/usr/local/apache2/htdocs/index.html:ro
+    ports:
+      - "8083:80"
